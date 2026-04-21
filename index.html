@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <script
+      lang="javascript"
+      src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"
+    ></script>
+    <title>NTT - Neue TFG Tools</title>
+  </head>
+  <body>
+    <div id="centerBox">
+      <header>
+        <section class="evergreen">
+          <h1>Evergreen</h1>
+          <ul>
+            <li>
+              <button command="show-modal" commandfor="evergreenEmptyToYard">
+                Leercontainer DBIS &rarr; Yard
+              </button>
+            </li>
+            <li>
+              <button
+                command="show-modal"
+                commandfor="evergreenEmptySafetyStock"
+              >
+                Leercontainer DBIS &rarr; Quelle
+              </button>
+            </li>
+            <li>
+              <button
+                command="show-modal"
+                commandfor="evergreenLoadedSafetyStock"
+              >
+                Vollcontainer Quelle &rarr; DUSS
+              </button>
+            </li>
+          </ul>
+        </section>
+        <section class="hapag">
+          <h1>Hapag</h1>
+          <ul>
+            <li>
+              <button command="show-modal" commandfor="hapagEmptyToYard">
+                Leercontainer DBIS &rarr; Yard
+              </button>
+            </li>
+            <li>
+              <button command="show-modal" commandfor="hapagEmptySafetyStock">
+                Leercontainer DBIS &rarr; Quelle
+              </button>
+            </li>
+            <li>
+              <button command="show-modal" commandfor="hapagLoadedSafetyStock">
+                Vollcontainer Quelle &rarr; DUSS
+              </button>
+            </li>
+          </ul>
+        </section>
+      </header>
+      <main>
+        <dialog id="evergreenEmptyToYard" class="evergreen">
+          <header>
+            <h1>Evergreen: Leercontainer DBIS &rarr; Yard</h1>
+            <button commandfor="evergreenEmptyToYardHelp" command="show-modal">
+              ?
+            </button>
+            <button commandfor="evergreenEmptyToYard" command="close">x</button>
+          </header>
+          <main>
+            <form>
+              <label for="evergreenEmptyToYardForecast">Forecast:</label>
+              <textarea
+                id="evergreenEmptyToYardForecast"
+                class="input_error"
+                placeholder="Hier den Forecast einkopieren"
+                rows="15"
+              ></textarea>
+              <label for="evergreenEmptyToYardDate">Datum:</label>
+              <input
+                type="date"
+                id="evergreenEmptyToYardDate"
+                class="input_error"
+              />
+              <label for="evergreenEmptyToYardVU">VU-Code:</label>
+              <input
+                list="VUCodes"
+                id="evergreenEmptyToYardVU"
+                class="input_error"
+              />
+            </form>
+          </main>
+        </dialog>
+        <dialog id="evergreenEmptySafetyStock" class="evergreen">
+          <header>
+            <h1>
+              Evergreen: Leercontainer DBIS &rarr; Quelle für Safety Stock
+            </h1>
+            <button
+              commandfor="evergreenEmptySafetyStockHelp"
+              command="show-modal"
+            >
+              ?
+            </button>
+            <button commandfor="evergreenEmptySafetyStock" command="close">
+              x
+            </button>
+          </header>
+          <main>
+            <form>
+              <label for="evergreenEmptySafetyStockTurnout">Turnout:</label>
+              <input
+                type="text"
+                id="evergreenEmptySafetyStockTurnout"
+                value="SafetyStockEvergreen"
+                class="input_error"
+              />
+              <label for="evergreenEmptySafetyStockAmount">Anzahl:</label>
+              <input
+                type="number"
+                id="evergreenEmptySafetyStockAmount"
+                class="input_error"
+              />
+              <label for="evergreenEmptySafetyStockDate">Datum:</label>
+              <input
+                type="date"
+                id="evergreenEmptySafetyStockDate"
+                class="input_error"
+              />
+              <label for="evergreenEmptySafetyStockVU">VU-Code:</label>
+              <input
+                list="VUCodes"
+                id="evergreenEmptySafetyStockVU"
+                class="input_error"
+              />
+            </form>
+          </main>
+        </dialog>
+        <dialog id="evergreenLoadedSafetyStock">
+          <header>
+            <h1>Evergreen: Vollcontainer Quelle &rarr; DUSS</h1>
+            <button commandfor="evergreenLoadedSafetyStock" command="close">
+              x
+            </button>
+          </header>
+          <main>
+            <p></p>
+          </main>
+        </dialog>
+        <dialog id="hapagEmptyToYard" class="hapag">
+          <header>
+            <h1>Hapag: Leercontainer DBIS &rarr; Yard</h1>
+            <button commandfor="hapagEmptyToYardHelp" command="show-modal">
+              ?
+            </button>
+            <button commandfor="hapagEmptyToYard" command="close">x</button>
+          </header>
+          <main>
+            <form>
+              <label for="hapagEmptyToYardTurnout">Turnout:</label>
+              <input
+                type="text"
+                id="hapagEmptyToYardTurnout"
+                value="HLEGCBMW"
+                class="input_ok"
+              />
+              <label for="hapagEmptyToYardAmount">Anzahl:</label>
+              <input
+                type="number"
+                id="hapagEmptyToYardAmount"
+                class="input_error"
+              />
+              <label for="hapagEmptyToYardDate">Datum:</label>
+              <input
+                type="date"
+                id="hapagEmptyToYardDate"
+                class="input_error"
+              />
+              <label for="hapagEmptyToYardWeek">Woche:</label>
+              <input
+                type="week"
+                id="hapagEmptyToYardWeek"
+                class="input_error"
+              />
+              <label for="hapagEmptyToYardVU">VU-Code:</label>
+              <input
+                list="VUCodes"
+                id="hapagEmptyToYardVU"
+                class="input_error"
+              />
+            </form>
+          </main>
+        </dialog>
+        <dialog id="hapagEmptySafetyStock">
+          <header>
+            <h1>Hapag: Leercontainer DBIS &rarr; Quelle</h1>
+            <button commandfor="hapagEmptySafetyStock" command="close">
+              x
+            </button>
+          </header>
+          <main>
+            <p></p>
+          </main>
+        </dialog>
+        <dialog id="hapagLoadedSafetyStock">
+          <header>
+            <h1>Hapag: Vollcontainer Quelle &rarr; DUSS</h1>
+            <button commandfor="hapagLoadedSafetyStock" command="close">
+              x
+            </button>
+          </header>
+          <main>
+            <p></p>
+          </main>
+        </dialog>
+      </main>
+    </div>
+    <datalist id="VUCodes">
+      <option value="DBG">DBIS Nürnberg</option>
+      <option value="EIG">kein VU vorgegeben</option>
+    </datalist>
+  </body>
+</html>

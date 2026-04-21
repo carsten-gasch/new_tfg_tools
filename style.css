@@ -1,0 +1,42 @@
+.evergreen {
+  background-color: #00a63c;
+  color: white;
+}
+
+.hapag {
+  background-color: #da6e00;
+  color: #111465;
+}
+
+dialog:modal {
+  border-radius: 1rem;
+}
+
+dialog::backdrop {
+  backdrop-filter: blur(1rem);
+}
+
+.input_error {
+  background-color: salmon;
+  color: white;
+}
+
+.input_ok {
+  background-color: #d1fa72;
+}
+
+dialog header {
+  display: grid;
+  grid-template-columns: 10fr 1fr 1fr;
+}
+dialog header button {
+  border-radius: 2rem;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+dialog main form {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  row-gap: 1rem;
+}
