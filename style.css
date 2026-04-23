@@ -28,15 +28,23 @@ dialog::backdrop {
 dialog header {
   display: grid;
   grid-template-columns: 10fr 1fr 1fr;
+  border-bottom: 2px solid black;
+  margin-bottom: 0.5rem;
 }
+
 dialog header button {
   border-radius: 2rem;
   padding: 1rem;
   margin: 1rem;
 }
 
-dialog main form {
+dialog section form {
   display: grid;
   grid-template-columns: 1fr 2fr;
   row-gap: 1rem;
+}
+
+dialog section form button {
+  grid-column: span 2;
+  height: 3rem;
 }
